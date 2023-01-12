@@ -1,5 +1,6 @@
 import { Ingredient } from "./classes/ingredient.js";
-    
+import {Pizza} from "./classes/pizza.js";
+
 window.addEventListener("DOMContentLoaded", function(){
     
     let availableIngredients = [];
@@ -55,15 +56,28 @@ window.addEventListener("DOMContentLoaded", function(){
     let liBtn = document.querySelectorAll("body > main > section:first-of-type > ul:first-of-type > li");
     let articleSelected = document.querySelectorAll("#stage article");
     
+    
     for(let i = 0; i < articleSelected.length; i++)
     {
         liBtn[i].addEventListener("click", function()
         {
             articleSelected[i].classList.toggle("selected");
-                
+    
         });
     }
-        
+    
+    let newPizza = new Pizza();
+    liBtn.addEventListener("click", function()
+    {
+        if(articleSelected.classList.contains("selected"))
+        {
+            newPizza.removeIngredient();
+        }
+        else
+        {
+            newPizza.addIngredient();
+        }
+    });
     
     
 });
