@@ -30,4 +30,4 @@ class Ingredient
     }
 }
 
-export {Ingredient};
+export { Ingredient };
