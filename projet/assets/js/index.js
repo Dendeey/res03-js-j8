@@ -52,14 +52,18 @@ window.addEventListener("DOMContentLoaded", function(){
         article.classList.add("not:selected");
     }
     
-    let liBtn = document.querySelector("body > main > section:first-of-type > ul:first-of-type > li");
-    let articleSelected = document.querySelector("body > main > section:first-of-type > ul:first-of-type > li > article");
+    let liBtn = document.querySelectorAll("body > main > section:first-of-type > ul:first-of-type > li");
+    let articleSelected = document.querySelectorAll("#stage article");
     
-    liBtn.addEventListener("click", function()
+    for(let i = 0; i < articleSelected.length; i++)
     {
-        articleSelected.classList.toggle("selected");
-            
-    });
+        liBtn[i].addEventListener("click", function()
+        {
+            articleSelected[i].classList.toggle("selected");
+                
+        });
+    }
+        
     
     
 });
